@@ -16,6 +16,8 @@
 4.有一條會跟著滑鼠走的輔助線。
 5.繪圖區會隨著視窗大小改變
 
+展示影片：https://youtu.be/dAFubA7aO-M
+
 如果對各套件的函式有太多不懂，上網搜尋documentation是最好的學習來源。
 matplotlib跟qt的官方documentation都寫得很好懂，雖然qt是c++，不過轉成python的用法也是行得通的。
 
