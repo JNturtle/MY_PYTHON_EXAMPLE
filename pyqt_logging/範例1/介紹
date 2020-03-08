@@ -24,17 +24,17 @@ GUI的操作功能得寫在一塊，格局被侷限了。
 
 程式敘述：
 
-有一個介面，上面有一個清單會顯示過去10秒的紀錄，以及對應三個程式的三個按鈕，按下去會執行對應的程式，及其他按鈕等。
+有一個介面，上面有一個清單會顯示過去10秒的紀錄，以及對應四個程式的四個按鈕，按下去會執行對應的程式，及其他按鈕等。
 
-三個程式分別為ProgramA、ProgramB、ProgramC，都有整合logging，會把紀錄傳到主程式查閱的.log檔案。
+四個程式分別為ProgramA、ProgramB、ProgramC、ProgramD，都有整合logging，會把紀錄傳到主程式查閱的.log檔案。
 
 ProgramA，有錯誤處理，而且有錯誤發生
 ProgramB，有錯誤處理，但沒有錯誤發生
 ProgramC，沒有錯誤處理，但有錯誤發生
+ProgramD，無限循環。
 
 不用 import 的方法，用 cmd 執行，並且運行過程也隱藏其cmd。
 
-執行這三個程式時，會在 ./error 生成一個 txt ，如果順利執行， txt 的大小會是0，然後被刪除掉。
+執行這四個程式時，會在 ./error 生成一個 txt ，如果順利執行， txt 的大小會是0，然後被刪除掉。
 ProgramA 與 ProgramB 順利執行完畢，而 ProgramC 會報錯，因此 ./error 會有記錄錯誤訊息的 ProgramC 的 txt。
-
-另外有一個 ProgramD，無限循環。可將其中一個改成此，觀察是否使用多核。會。
+而ProgramD，無限循環，觀察是否使用多核。會。
