@@ -1,12 +1,14 @@
 """功能區編寫
 能預期線程執行的程式會四散在各地，所以引用特定的myLogger，避免使用多個同名檔案造成混淆。
-有 ProgramA ProgramB ProgramC 三個按鈕，分別對應 ./other 的 .py檔
+有 ProgramA ProgramB ProgramC ProgramD 四個按鈕，分別對應 ./other 的 .py檔
 ProgramA 是有針對對應錯誤的做應對的，而且有錯誤發生
 ProgramB 是有針對對應錯誤的做應對的，但是沒有錯誤
 ProgramC 沒有做任何錯誤處理
+ProgramD 無限循環
 
 如果獨立程式也不想顯示cmd，請把指令換成下行，並將對應檔案的檔名改成 .pyw 。但是這樣就不會有任何非預期錯誤輸出。
 cmd = 'start ""pythonw ' + folderPath + '\\other\\Program[X].pyw >{:} 2>&1"'.format(temErrorLog)
+cmd = 'start ""pythonw ' + folderPath + '\\other\\Program[X].pyw '
 """
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -41,6 +43,7 @@ class MYMAINWINDOW(QtWidgets.QMainWindow, ui_work.Ui_MainWindow):
         self.PA.clicked.connect(self.PA_clicked)
         self.PB.clicked.connect(self.PB_clicked)
         self.PC.clicked.connect(self.PC_clicked)
+        self.PD.clicked.connect(self.PD_clicked)
         # logging
         mylogger.clearLog()
         self.logger = mylogger.getLogger("Main")
@@ -51,7 +54,6 @@ class MYMAINWINDOW(QtWidgets.QMainWindow, ui_work.Ui_MainWindow):
         self.WARNING.toggled.connect(lambda: self.loggingRadioBtnState(self.WARNING))
         self.INFO.toggled.connect(lambda: self.loggingRadioBtnState(self.INFO))
         self.DEBUG.toggled.connect(lambda: self.loggingRadioBtnState(self.DEBUG))
-
     def loggingRadioBtnState(self, btn):
         if btn.isChecked() == True:
             self.loggingFilter = btn.text()
@@ -73,6 +75,11 @@ class MYMAINWINDOW(QtWidgets.QMainWindow, ui_work.Ui_MainWindow):
         cmd = 'python ' + folderPath + '\\other\\ProgramC.py >{:} 2>&1'.format(temErrorLog)
         self.logger.info("按下 programC 按鈕")
         self.addThread(os.system, [cmd], "ProgramC", temErrorLog)
+    def PD_clicked(self):     
+        temErrorLog = folderPath + "\\other\\error\\ProgramD_{:}.log".format(self.sysTime.strftime("%Y%m%d%H%M%S"))
+        cmd = 'python ' + folderPath + '\\other\\ProgramD.py >{:} 2>&1'.format(temErrorLog)
+        self.logger.info("按下 programD 按鈕")
+        self.addThread(os.system, [cmd], "ProgramD", temErrorLog)
     def addThread(self, func, params, programName, temLogPath):
         self.threads.append(WorkThread())
         self.threads[-1].setFuncParams(func, params, programName, temLogPath)
