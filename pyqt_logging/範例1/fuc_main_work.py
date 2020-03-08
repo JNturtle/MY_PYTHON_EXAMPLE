@@ -60,7 +60,7 @@ class MYMAINWINDOW(QtWidgets.QMainWindow, ui_work.Ui_MainWindow):
         pass
     def PA_clicked(self):       
         temErrorLog = folderPath + "\\other\\error\\ProgramA_{:}.log".format(self.sysTime.strftime("%Y%m%d%H%M%S"))
-        cmd = 'pythonw ' + folderPath + '\\other\\ProgramA.py >{:} 2>&1'.format(temErrorLog)
+        cmd = 'python ' + folderPath + '\\other\\ProgramA.py >{:} 2>&1'.format(temErrorLog)
         self.logger.info("按下 programA 按鈕")
         self.addThread(os.system, [cmd], "ProgramA", temErrorLog)
     def PB_clicked(self):
