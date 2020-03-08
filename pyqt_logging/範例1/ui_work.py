@@ -1,0 +1,91 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'C:\Users\JN\source\repos\部落格範例\部落格範例\qt程式運作1\work.ui'
+#
+# Created by: PyQt5 UI code generator 5.9.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(640, 340)
+        MainWindow.setMinimumSize(QtCore.QSize(640, 340))
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox.setGeometry(QtCore.QRect(10, 250, 611, 61))
+        self.groupBox.setObjectName("groupBox")
+        self.localTime = QtWidgets.QLabel(self.groupBox)
+        self.localTime.setGeometry(QtCore.QRect(10, 20, 171, 20))
+        self.localTime.setMinimumSize(QtCore.QSize(0, 20))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.localTime.setFont(font)
+        self.localTime.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.localTime.setObjectName("localTime")
+        self.PA = QtWidgets.QPushButton(self.groupBox)
+        self.PA.setGeometry(QtCore.QRect(200, 20, 75, 23))
+        self.PA.setObjectName("PA")
+        self.PB = QtWidgets.QPushButton(self.groupBox)
+        self.PB.setGeometry(QtCore.QRect(310, 20, 75, 23))
+        self.PB.setObjectName("PB")
+        self.PC = QtWidgets.QPushButton(self.groupBox)
+        self.PC.setGeometry(QtCore.QRect(420, 20, 75, 23))
+        self.PC.setObjectName("PC")
+        self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_2.setGeometry(QtCore.QRect(10, 10, 611, 181))
+        self.groupBox_2.setObjectName("groupBox_2")
+        self.loglist = QtWidgets.QListWidget(self.groupBox_2)
+        self.loglist.setGeometry(QtCore.QRect(0, 20, 611, 161))
+        self.loglist.setObjectName("loglist")
+        self.groupBox_3 = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_3.setGeometry(QtCore.QRect(10, 200, 371, 41))
+        self.groupBox_3.setObjectName("groupBox_3")
+        self.ERROR = QtWidgets.QRadioButton(self.groupBox_3)
+        self.ERROR.setGeometry(QtCore.QRect(80, 20, 61, 16))
+        self.ERROR.setObjectName("ERROR")
+        self.CRITICAL = QtWidgets.QRadioButton(self.groupBox_3)
+        self.CRITICAL.setGeometry(QtCore.QRect(0, 20, 71, 16))
+        self.CRITICAL.setObjectName("CRITICAL")
+        self.INFO = QtWidgets.QRadioButton(self.groupBox_3)
+        self.INFO.setGeometry(QtCore.QRect(240, 20, 51, 16))
+        self.INFO.setChecked(True)
+        self.INFO.setObjectName("INFO")
+        self.DEBUG = QtWidgets.QRadioButton(self.groupBox_3)
+        self.DEBUG.setGeometry(QtCore.QRect(300, 20, 61, 16))
+        self.DEBUG.setObjectName("DEBUG")
+        self.WARNING = QtWidgets.QRadioButton(self.groupBox_3)
+        self.WARNING.setGeometry(QtCore.QRect(150, 20, 81, 16))
+        self.WARNING.setObjectName("WARNING")
+        self.ERRORWARN = QtWidgets.QCheckBox(self.centralwidget)
+        self.ERRORWARN.setGeometry(QtCore.QRect(400, 220, 101, 16))
+        self.ERRORWARN.setObjectName("ERRORWARN")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 640, 21))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "qt_work"))
+        self.groupBox.setTitle(_translate("MainWindow", "GroupBox"))
+        self.localTime.setText(_translate("MainWindow", "現在時間: 03-06 15:00:00"))
+        self.PA.setText(_translate("MainWindow", "Program A"))
+        self.PB.setText(_translate("MainWindow", "Program B"))
+        self.PC.setText(_translate("MainWindow", "Program C"))
+        self.groupBox_2.setTitle(_translate("MainWindow", "過去十秒的logging"))
+        self.groupBox_3.setTitle(_translate("MainWindow", "Logging Level"))
+        self.ERROR.setText(_translate("MainWindow", "ERROR"))
+        self.CRITICAL.setText(_translate("MainWindow", "CRITICAL"))
+        self.INFO.setText(_translate("MainWindow", "INFO"))
+        self.DEBUG.setText(_translate("MainWindow", "DEBUG"))
+        self.WARNING.setText(_translate("MainWindow", "WARNING"))
+        self.ERRORWARN.setText(_translate("MainWindow", "ERROR WARN"))
+
