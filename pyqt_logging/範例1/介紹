@@ -36,3 +36,5 @@ ProgramC，沒有錯誤處理，但有錯誤發生
 
 執行這三個程式時，會在 ./error 生成一個 txt ，如果順利執行， txt 的大小會是0，然後被刪除掉。
 ProgramA 與 ProgramB 順利執行完畢，而 ProgramC 會報錯，因此 ./error 會有記錄錯誤訊息的 ProgramC 的 txt。
+
+另外有一個 ProgramD，無限循環。可將其中一個改成此，觀察是否使用多核。會。
