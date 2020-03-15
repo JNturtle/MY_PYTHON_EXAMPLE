@@ -1,4 +1,4 @@
-<h2>Python 資料讀寫方法比較與資料壓縮比較
+##Python 資料讀寫方法比較與資料壓縮比較
 
 「json zlib > json gz > str json」
 
