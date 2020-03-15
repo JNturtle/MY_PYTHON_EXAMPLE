@@ -17,7 +17,7 @@ if __name__ == '__main__':
     stTest = WRStatistic("str str (tuple)", "ex_st_RWSpeed.txt", data)
     bzTest = WRStatistic("json bz", "ex_bz_RWSpeed", data, compresslevel = 9)
     # 在這裡擺入想執行的測試
-    run_test = [zlTest, sjTest, gzTest, xzTest]#, jjTest, sbTest, slTest, bzTest] 
+    run_test = [zlTest, sjTest, gzTest, xzTest, jjTest, sbTest, slTest, bzTest] 
 
     def runZlib(WRS, compressLevel = 6):
         """ json zlib"""
