@@ -2,7 +2,7 @@ import json, gzip, lzma, bz2, zlib
 from time import perf_counter
 from StatisticObj import WRStatistic
 
-data = [("阿明", "身體狀況", {"體重":78.9, "肝功能": "正常"}, 90, 85, 97, 81,  85, True)]*150000
+data = [("阿明", "身體狀況", {"體重":78.9, "肝功能": "正常"}, 90, 85, 97, 81,  85, True)]*50000
 runtimes = 10
 
 # 運行主程式
