@@ -1,10 +1,14 @@
 ##Python 資料讀寫方法比較與資料壓縮比較
 
-**「json zlib > json gz > str json」**
+**「bstr json > json zlib > json gz > str json」**
 
 blog: https://jnturtle.blogspot.com/2020/03/python.html#more
 
 **[Statistics]**</br>
+Method: **bstr json**, Compress Ratio: 0.06：1
+Average Use Time: avgWtime:0.09391, avgRtime:0.13125, avgUtime:0.22516 </br>
+Data size: 400064(0.39MB), Wspeed:4.16025 MB/s, Rspeed:2.97668 MB/s, Uspeed:1.73516 MB/s </br>
+File size: 6700000(6.54MB), Wspeed:69.67296 MB/s, Rspeed:49.85146 MB/s, Uspeed:29.05932 MB/s </br>
 Method: **json zlib**, Compress Ratio: 15.32：1 </br>
 Average Use Time: avgWtime:0.12470, avgRtime:0.13500, avgUtime:0.25969 </br>
 Data size: 400064(0.39MB), Wspeed:3.13309 MB/s, Rspeed:2.89404 MB/s, Uspeed:1.50441 MB/s</br>
