@@ -7,6 +7,7 @@ runtimes = 10
 
 # 運行主程式
 if __name__ == '__main__':
+    bjTest = WRStatistic("bstr json", "ex_sj_RWSpeed.txt", data) 
     zlTest = WRStatistic("json zlib", "ex_zl_RWSpeed", data, compresslevel = 6)
     sjTest = WRStatistic("str json", "ex_sj_RWSpeed.txt", data)
     gzTest = WRStatistic("json gz", "ex_gz_RWSpeed.gz", data, compresslevel = 9)
@@ -17,8 +18,22 @@ if __name__ == '__main__':
     stTest = WRStatistic("str str (tuple)", "ex_st_RWSpeed.txt", data)
     bzTest = WRStatistic("json bz", "ex_bz_RWSpeed", data, compresslevel = 9)
     # 在這裡擺入想執行的測試
-    run_test = [zlTest, sjTest, gzTest, xzTest, jjTest, sbTest, slTest, stTest, bzTest] 
+    run_test = [bjTest, zlTest, sjTest, gzTest, xzTest, jjTest, sbTest, slTest, stTest, bzTest] 
 
+    def runBj(WRS):
+        """ string json """
+        useTimer = perf_counter()      
+        writeTimer = perf_counter()  
+        with open(WRS.fileName, 'wb') as f:
+            f.write(bytes(json.dumps(data),encoding = "ascii"))
+        f.close()
+        readTimer = perf_counter()     
+        with open(WRS.fileName, 'rb') as f:
+            result = json.load(f)
+        f.close()
+        endTimer = perf_counter()
+        WRS.addRecord(useTimer, writeTimer, readTimer, endTimer)
+        WRS.printThisStat()    
     def runZlib(WRS, compressLevel = 6):
         """ json zlib"""
         if WRS.compresslevel: compressLevel = WRS.compresslevel
@@ -151,7 +166,8 @@ if __name__ == '__main__':
         WRS.printThisStat()
     for _ in range(runtimes):
         for test in run_test:
-            if test is zlTest: runZlib(zlTest)
+            if test is bjTest: runBj(bjTest)            
+            elif test is zlTest: runZlib(zlTest)
             elif test is sjTest: runSj(sjTest)
             elif test is gzTest: runGz(gzTest)
             elif test is xzTest: runXz(xzTest)
@@ -161,6 +177,7 @@ if __name__ == '__main__':
             elif test is stTest: runSt(stTest)
             elif test is bzTest: runBz(bzTest)
     print("[Statistics]")
+    if bjTest.runtimes: bjTest.printTotalStat()    
     if zlTest.runtimes: zlTest.printTotalStat()
     if sjTest.runtimes: sjTest.printTotalStat()
     if gzTest.runtimes: gzTest.printTotalStat()
