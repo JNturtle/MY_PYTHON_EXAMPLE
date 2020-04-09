@@ -16,7 +16,7 @@ def KMP(target, pattern):
     PL = len(pattern)
 
     # 更換標籤，換成 index,，往後挪移(條件的pattern[i-1])
-    for i in range(len(pattern)):
+    for i in range(PL):
         if i == 0: 
             prefixTable[i] = -1
         else:
