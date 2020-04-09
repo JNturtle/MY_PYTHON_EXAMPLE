@@ -15,18 +15,6 @@ def KMP(target, pattern):
     TL = len(target)
     PL = len(pattern)
 
-    """
-    prefixTable 解說
-    [0] a = 0 # 預設
-    [1] 如果長度要加1，後面的字符要跟 [1-1] => [0] 一樣，也就是與 pattern[prefixTable[1-1]] a 一樣。 => b != a, prefixTable[1] = 0
-    [2] pattern[2] == pattern[prefixTable[2-1]] => 最後加入的字符 跟 pattern[prefixTable[2-1]] 一樣 => 長度+1
-    [3] 2
-    [4] pattern[4] != pattern[prefixTable[4-1]] => pattern[4] != pattern[prefixTable[2-1]] => prefixTable[4] = 0
-             c     !=           a(※[2])        =>    c       !=         a(※[0])        => 
-    如果沒有搜尋到，就到跳最後通過該跳的位置 prefixTable[4-1-1]-1 => [0]
-    ab「abc」， 若最後一個位置是 a，長度就變成 2+1，但是沒有通過。拿來比較的是 「ab」abc 這位置上的ab ，因此你要跳到 a「b」abc 該回去的索引，也就是 0，到了這個位置「a」babc，再去比較。
-    """      
-
     # 更換標籤，換成 index,，往後挪移(條件的pattern[i-1])
     for i in range(len(pattern)):
         if i == 0: 
